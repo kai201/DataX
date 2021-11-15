@@ -131,7 +131,7 @@ public final class WriterUtil {
                     .append(onDuplicateKeyUpdateString(columnHolders))
                     .toString();
 
-        } else if (dataBaseType == DataBaseType.PostgreSQL) {
+        } else if (forceUseUpdate || dataBaseType == DataBaseType.PostgreSQL) {
 
             writeDataSqlTemplate = new StringBuilder().append("INSERT INTO %s (")
                     .append(StringUtils.join(columnHolders, ","))
